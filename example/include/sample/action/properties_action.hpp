@@ -17,7 +17,7 @@
  */
 template <
     typename ForwardTraversalIterator,
-    typename CharT = boost::iterator_value<ForwardTraversalIterator>::type>
+    typename CharT = typename boost::iterator_value<ForwardTraversalIterator>::type>
 std::basic_string<CharT> &
 operator+=(std::string &lhs,
            const boost::iterator_range<ForwardTraversalIterator> &range) {

@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.10)
 project(cpp_properties)
 
+set (CMAKE_CXX_STANDARD 14)
+
 # Activate warnings
 if(DEFINED CMAKE_CXX_COMPILER_ID)
     if (${CMAKE_CXX_COMPILER_ID} STREQUAL GNU OR
@@ -8,6 +10,8 @@ if(DEFINED CMAKE_CXX_COMPILER_ID)
         set(warnings "-Wall -Wextra -Werror")
     elseif (${CMAKE_CXX_COMPILER_ID} STREQUAL MSVC)
         set(warnings "/W4 /EHsc")
+    elseif (${CMAKE_CXX_COMPILER_ID} STREQUAL AppleClang)
+        set(warnings "-Wall -Wextra")
     else()
         message(WARNING "Unsupported CXX compiler: ${CMAKE_CXX_COMPILER_ID}")
     endif()
